@@ -1,0 +1,24 @@
+{
+  "name": "ldap-cinema21",
+  "version": "1.0.0",
+  "description": "Contains all configurations to connect on Active Directory in Windows Server 2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizkilabs/ldap-cinema21.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizkilabs/ldap-cinema21/issues"
+  },
+  "homepage": "https://github.com/rizkilabs/ldap-cinema21#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ldapjs": "^2.3.3"
+  }
+}
