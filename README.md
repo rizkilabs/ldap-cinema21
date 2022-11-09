@@ -1,2 +1,1 @@
-# ldap-cinema21
-Develop ldap project for cinema21 
+Contains all configurations to connect on Active Directory in Windows Server 2019
