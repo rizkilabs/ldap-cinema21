@@ -1,0 +1,303 @@
+{
+  "user": {
+    "userCode": "ims-admin",
+    "userName": "imsadmin",
+    "userType": 1,
+    "cinemaId": [],
+    "userAppsList": null,
+    "fullName": "ims admin",
+    "email": "",
+    "msisdn": null,
+    "deviceId": null,
+    "status": null,
+    "pushNotification": 2,
+    "expiredDate": null,
+    "password": null,
+    "listRole": [
+      38,
+      39,
+      41,
+      42,
+      43,
+      45
+    ]
+  },
+  "privilege": {
+    "pages": [
+      {
+        "pageName": "User - Detail",
+        "pageCode": "USER_DETAIL",
+        "pageType": 1,
+        "pageUrl": "user",
+        "item": [
+          {
+            "objectCode": "btn_detail_user",
+            "objectName": "Detail",
+            "objectType": 1,
+            "urlApi": "/user/api/users/{id}",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Vendor - Detail",
+        "pageCode": "INVOICE_VENDOR_DETAIL",
+        "pageType": 1,
+        "pageUrl": "invoice-vendor-data",
+        "item": [
+          {
+            "objectCode": "btn_vendor_detail",
+            "objectName": "Detail",
+            "objectType": 1,
+            "urlApi": "/api/vendor/{id}",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Header - Detail",
+        "pageCode": "INVOICE_HEADER_DETAIL",
+        "pageType": 1,
+        "pageUrl": "invoice-data",
+        "item": [
+          {
+            "objectCode": "btn_header_detail",
+            "objectName": "Detail",
+            "objectType": 1,
+            "urlApi": "/api/invoice/header/{invoiceNo}",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Approval - Detail",
+        "pageCode": "INVOICE_APPROVAL_DETAIL",
+        "pageType": 1,
+        "pageUrl": "/invoice-approval-data",
+        "item": [
+          {
+            "objectCode": "btn_approval_detail",
+            "objectName": "Detail invoice",
+            "objectType": 1,
+            "urlApi": "/api/invoice/header/{invoiceNo}",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "Dashboard",
+        "pageCode": "DASHBOARD",
+        "pageType": 1,
+        "pageUrl": "dashboard",
+        "item": [
+          {
+            "objectCode": "data_dashboard",
+            "objectName": "Data Dashboards",
+            "objectType": 1,
+            "urlApi": "/dashboard",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "User - Create",
+        "pageCode": "USER_CREATE",
+        "pageType": 1,
+        "pageUrl": "user",
+        "item": [
+          {
+            "objectCode": "btn_create_user",
+            "objectName": "Create",
+            "objectType": 1,
+            "urlApi": "/user/api/users",
+            "method": "POST"
+          }
+        ]
+      },
+      {
+        "pageName": "User - Manage",
+        "pageCode": "USER_MANAGE",
+        "pageType": 1,
+        "pageUrl": "user",
+        "item": [
+          {
+            "objectCode": "btn_update_user",
+            "objectName": "Update",
+            "objectType": 1,
+            "urlApi": "/user/api/users/{id}",
+            "method": "PUT"
+          },
+          {
+            "objectCode": "btn_delete_user",
+            "objectName": "Delete",
+            "objectType": 1,
+            "urlApi": "/user/api/users/{id}",
+            "method": "DELETE"
+          },
+          {
+            "objectCode": "view_user",
+            "objectName": "View",
+            "objectType": 2,
+            "urlApi": "/user/api/users",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Vendor - Manage",
+        "pageCode": "INVOICE_VENDOR_MANAGE",
+        "pageType": 1,
+        "pageUrl": "invoice-vendor-data",
+        "item": [
+          {
+            "objectCode": "view_list",
+            "objectName": "view_list",
+            "objectType": 2,
+            "urlApi": "/api/vendor/",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Header - Manage",
+        "pageCode": "INVOICE_HEADER_MANAGE",
+        "pageType": 1,
+        "pageUrl": "invoice-data",
+        "item": [
+          {
+            "objectCode": "view_header",
+            "objectName": "view",
+            "objectType": 2,
+            "urlApi": "/api/invoice/header/",
+            "method": "GET"
+          },
+          {
+            "objectCode": "btn_update_header",
+            "objectName": "Update",
+            "objectType": 1,
+            "urlApi": "/api/invoice/header/{id}",
+            "method": "PUT"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Header - Create",
+        "pageCode": "INVOICE_HEADER_CREATE",
+        "pageType": 1,
+        "pageUrl": "invoice-data/new",
+        "item": [
+          {
+            "objectCode": "btn_header_create",
+            "objectName": "Create",
+            "objectType": 1,
+            "urlApi": "/api/invoice/header/",
+            "method": "POST"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Approval - Manage",
+        "pageCode": "INVOICE_APPROVAL_MANAGE",
+        "pageType": 1,
+        "pageUrl": "/invoice-approval-data",
+        "item": [
+          {
+            "objectCode": "view_list_approval",
+            "objectName": "view",
+            "objectType": 2,
+            "urlApi": "/api/invoice/header/",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "pageName": "Invoice Export - Manage",
+        "pageCode": "INVOICE_EXPORT_MANAGE",
+        "pageType": 1,
+        "pageUrl": "invoice-export-data",
+        "item": [
+          {
+            "objectCode": "view_export",
+            "objectName": "view export",
+            "objectType": 2,
+            "urlApi": "/api/invoice/export/excel",
+            "method": "GET"
+          }
+        ]
+      }
+    ],
+    "menus": [
+      {
+        "menuType": 1,
+        "menuName": "Dashboard",
+        "subMenu": [
+          {
+            "pageCode": "DASHBOARD",
+            "menuName": "Dashboard"
+          }
+        ]
+      },
+      {
+        "menuType": 1,
+        "menuName": "Admin Panel",
+        "subMenu": [
+          {
+            "menuName": "User",
+            "subMenu": [
+              {
+                "pageCode": "USER_CREATE",
+                "menuName": "Create"
+              },
+              {
+                "pageCode": "USER_MANAGE",
+                "menuName": "Manage"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "menuType": 1,
+        "menuName": "Invoice ",
+        "subMenu": [
+          {
+            "menuName": "Invoice Vendor",
+            "subMenu": [
+              {
+                "pageCode": "INVOICE_VENDOR_MANAGE",
+                "menuName": "List"
+              }
+            ]
+          },
+          {
+            "menuName": "Management",
+            "subMenu": [
+              {
+                "pageCode": "INVOICE_HEADER_MANAGE",
+                "menuName": "List"
+              },
+              {
+                "pageCode": "INVOICE_HEADER_CREATE",
+                "menuName": "Create"
+              }
+            ]
+          },
+          {
+            "pageCode": "INVOICE_APPROVAL_MANAGE",
+            "menuName": "Approval"
+          }
+        ]
+      },
+      {
+        "menuType": 1,
+        "menuName": "Report",
+        "subMenu": [
+          {
+            "pageCode": "INVOICE_EXPORT_MANAGE",
+            "menuName": "Manage"
+          }
+        ]
+      }
+    ]
+  }
+}

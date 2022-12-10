@@ -4,6 +4,7 @@
   "description": "Contains all configurations to connect on Active Directory in Windows Server 2019",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +20,9 @@
   "homepage": "https://github.com/rizkilabs/ldap-cinema21#readme",
   "dependencies": {
     "activedirectory": "^0.7.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
     "ldapjs": "^2.3.3"
   }
 }
