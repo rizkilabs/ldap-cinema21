@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <style>
+      /* Style login form */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 300px;
+        font-size: 16px;
+      }
+
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      /* Style error message */
+      #error-message {
+        color: red;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      /* Style success message */
+      #success-message {
+        color: green;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Login">
+    </form>
+
+    <div id="error-message"></div>
+    <div id="success-message"></div>
+
+    <script>
+      const form = document.querySelector("form");
+      const errorMessage = document.getElementById("error-message");
+      const successMessage = document.getElementById("success-message");
+
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+
+        // Get form inputs
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Validate form inputs
+        if (username === "" || password === "") {
+          errorMessage.innerText = "All fields are required.";
+          successMessage.innerText = "";
+          return;
+        }
+
+        // Send login request to server
+        fetch("http://localhost:4000/activedirectories/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password
+          })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Login failed");
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Login successful, show success message
+          successMessage.innerText = "Login successful!";
+          errorMessage.innerText = "";
+
+          // Redirect to change password form
+          window.location.href = "change_password.html?username=" + encodeURIComponent(username);
+        })
+        .catch(error => {
+          // Login failed, show error message
+          errorMessage.innerText = "Login failed. Please check your username and password.";
+          successMessage.innerText = "";
+        });
+      });
+    </script>
+  </body>
+</html>
