@@ -167,26 +167,6 @@
           timer: 2000
         });
 
-        const exec = require('child_process').exec;
-
-        // ctrl + c
-        exec('taskkill /f /im node.exe', (err, stdout, stderr) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          console.log(stdout);
-        });
-
-        exec('nodemon app.js', (err, stdout, stderr) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          console.log(stdout);
-          });
-
-
           // errorMessage.innerText = "Login failed. Please check your username and password.";
           // successMessage.innerText = "";
         });
