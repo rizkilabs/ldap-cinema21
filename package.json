@@ -24,7 +24,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
-    "ldapjs": "^2.3.3"
+    "ldapjs": "^2.3.3",
+    "toastify-js": "^1.12.0"
   },
   "devDependencies": {
     "tailwindcss": "^3.2.7"

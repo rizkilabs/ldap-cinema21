@@ -59,6 +59,11 @@ class AdController {
       }
 
       
+      const filePath = path.join(__dirname, '..', 'data', 'user.json');
+      const data = fs.readFileSync(filePath, 'utf8');
+      const user = JSON.parse(data);
+      user.password = password;
+      const newLog = fs.writeFileSync(filePath, JSON.stringify(user));
 
       if(userPassword.username !== username) {
         // change log to 0
@@ -111,19 +116,24 @@ class AdController {
 
 
       const filePath = path.join(__dirname, '..', 'data', 'user.json');
-
       let data = fs.readFileSync(filePath, 'utf8');      
-      const user = JSON.parse(data);
-      const newPassword = password;
-      user.password = newPassword;
-      // user.log = 0;
-      fs.writeFileSync(filePath, JSON.stringify(user));
+        const user = JSON.parse(data);
+
+      
 
       if(user.currentPassword !== currentPassword) {
         res.status(401).json({
           message: "Current password is wrong",
         });
         return;
+      } else {
+        let data = fs.readFileSync(filePath, 'utf8');      
+        const user = JSON.parse(data);
+        const newPassword = password;
+        user.password = newPassword;
+        user.currentPassword = newPassword;
+        // user.log = 0;
+        fs.writeFileSync(filePath, JSON.stringify(user));
       }
 
       let usernameData = username;
