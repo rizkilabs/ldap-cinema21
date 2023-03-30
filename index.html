@@ -60,7 +60,7 @@
         position: relative;
       }
 
-      #show-password {
+      .show-password {
         position: absolute;
         top: 0;
         right: 0;
@@ -79,7 +79,7 @@
       <div id="password-id">
         <!-- <input type="password" onfocus="focusPass()" onfocusout="focusOutPass()" oninput="typePass()" onmouseover="mouseOverPass();" onmouseout="mouseOutPass();"  id="password" name="password" required> -->
         <input type="password" id="password" name="password" required>
-        <a href="#" id="show-password" onclick="togglePassword()">
+        <a href="#" class="show-password" onclick="togglePassword()">
           <span class="material-symbols-outlined">visibility_off</span>
         </a>
       </div>
@@ -93,7 +93,7 @@
 
     <script>
       togglePassword = () => {
-        let showPassword = document.getElementById("show-password");
+        let showPassword = document.querySelector(".show-password");
         let password = document.getElementById("password");
 
         if (password.type === "password") {
