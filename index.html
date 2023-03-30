@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>\
+  <head>
     <script>
       const token = localStorage.getItem("access_token");
       if (token) {
@@ -8,6 +8,8 @@
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <meta charset="utf-8">
     <title>Login</title>
     <style>
@@ -53,6 +55,18 @@
         margin-bottom: 20px;
         font-size: 16px;
       }
+
+      #password-id {
+        position: relative;
+      }
+
+      #show-password {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -62,7 +76,13 @@
       <input type="text" id="username" name="username" required>
 
       <label for="password">Password:</label>
-      <input type="password" onfocus="focusPass()" onfocusout="focusOutPass()" oninput="typePass()" onmouseover="mouseOverPass();" onmouseout="mouseOutPass();"  id="password" name="password" required>
+      <div id="password-id">
+        <!-- <input type="password" onfocus="focusPass()" onfocusout="focusOutPass()" oninput="typePass()" onmouseover="mouseOverPass();" onmouseout="mouseOutPass();"  id="password" name="password" required> -->
+        <input type="password" id="password" name="password" required>
+        <a href="#" id="show-password" onclick="togglePassword()">
+          <span class="material-symbols-outlined">visibility_off</span>
+        </a>
+      </div>
       <!-- <input type="checkbox" onclick="myFunction()"> -->
 
       <input type="submit" value="Login">
@@ -72,7 +92,19 @@
     <div id="success-message"></div>
 
     <script>
-      
+      togglePassword = () => {
+        let showPassword = document.getElementById("show-password");
+        let password = document.getElementById("password");
+
+        if (password.type === "password") {
+          password.type = "text";
+          showPassword.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
+        } else {
+          password.type = "password";
+          showPassword.innerHTML = '<span class="material-symbols-outlined">visibility_off</span>';
+        }
+      }
+  
       focusPass = () => {
         var x = document.getElementById("password");
         x.type = "text";
