@@ -137,18 +137,15 @@
       form.addEventListener("submit", event => {
         event.preventDefault();
 
-        // Get form inputs
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
 
-        // Validate form inputs
         if (username === "" || password === "") {
           errorMessage.innerText = "All fields are required.";
           successMessage.innerText = "";
           return;
         }
 
-        // Send login request to server
         fetch("http://localhost:4000/activedirectories/login", {
           method: "POST",
           headers: {
@@ -166,11 +163,7 @@
           return response.json();
         })
         .then(data => {
-          // Login successful, show success message
-
           const token = data.access_token;
-        
-          // Store token in local storage
           localStorage.setItem("access_token", token);
 
         Swal.fire({
@@ -181,15 +174,9 @@
         }).then(function() {
           window.location.href = "change_password.html?username=" + encodeURIComponent(username);
         });
-
-
-          // errorMessage.innerText = "";
-
-          // Redirect to change password form
           
         })
         .catch(error => {
-          // Login failed, show error message
           console.log(" error => " + error);
 
           Swal.fire({
@@ -198,9 +185,6 @@
           icon: 'error',
           timer: 2000
         });
-
-          // errorMessage.innerText = "Login failed. Please check your username and password.";
-          // successMessage.innerText = "";
         });
       });
     </script>

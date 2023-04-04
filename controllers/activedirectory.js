@@ -66,7 +66,6 @@ class AdController {
       const newLog = fs.writeFileSync(filePath, JSON.stringify(user));
 
       if(userPassword.username !== username) {
-        // change log to 0
         const filePath = path.join(__dirname, '..', 'data', 'user.json');
         const data = fs.readFileSync(filePath, 'utf8');
         const user = JSON.parse(data);
@@ -132,7 +131,6 @@ class AdController {
         const newPassword = password;
         user.password = newPassword;
         user.currentPassword = newPassword;
-        // user.log = 0;
         fs.writeFileSync(filePath, JSON.stringify(user));
       }
 
@@ -169,13 +167,9 @@ class AdController {
             adPassword = password;
             console.log("Password has been changed");
             res.status(200).json({ message: "Password has been changed" });
-            // restart server
           }
         }
       )
-
-      // setPassword(usernameValue, password);
-      // res.status(200).json({ message: "Password has been changed" });
     } catch (err) {
       console.log(err.message);
       res.status(500).json(err);
