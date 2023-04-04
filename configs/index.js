@@ -14,7 +14,6 @@ const config = {
   },
 };
 
-console.log(config.password, "this is adPassw0rd");
 let ldapJsConfig = ldap.createClient({
   url: config.url,
   tlsOptions: config.tlsOptions,
