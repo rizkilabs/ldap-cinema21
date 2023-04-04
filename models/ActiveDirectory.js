@@ -20,8 +20,6 @@ let getAllUsers = async () => {
       }
     }
   })
-
-  console.log(allUsers, "this is all users")
 }
 
 module.exports = { getAllUsers };

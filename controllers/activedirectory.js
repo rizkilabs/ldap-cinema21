@@ -30,7 +30,6 @@ class AdController {
         }
       });
     } catch (err) {
-      console.log(err.message);
       res.status(500).json(err);
     }
   }
@@ -79,7 +78,6 @@ class AdController {
       let usernameWithDomain = usernameValue + "@" + "dev.cinema21.co.id";
       await ad.authenticate(usernameWithDomain, password, function (err, auth) {
         if (err) {
-          console.log(err.message);
           res.status(401).json({
             message: "Username or password is wrong",
           });
@@ -94,7 +92,6 @@ class AdController {
         }
       });
     } catch (err) {
-      console.log(err.message);
       res.status(500).json(err);
     }
   }
@@ -105,14 +102,6 @@ class AdController {
       const userClass = new AdController();
       userClass.username = username;
       userClass.password = password;
-
-      for(let i = 0; i < req.body.length; i++) {
-        console.log(req.body[i]);
-      }
-      console.log(" req.body.username => " + req.body.username);
-      console.log(" req.body.password => " + req.body.password);
-      console.log(" req.body.currentPassword => " + req.body.currentPassword);
-
 
       const filePath = path.join(__dirname, '..', 'data', 'user.json');
       let data = fs.readFileSync(filePath, 'utf8');      
@@ -165,7 +154,6 @@ class AdController {
             console.log(err.message);
           } else {
             adPassword = password;
-            console.log("Password has been changed");
             res.status(200).json({ message: "Password has been changed" });
           }
         }
