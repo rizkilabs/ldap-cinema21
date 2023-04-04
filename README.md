@@ -16,7 +16,7 @@ It's easy to modify and customize. Ideal for integrating LDAP into your own web 
 ![ldap](/img/ldap-diagram.png)
 
 Author: <br>
-- M RIzki ([linkedin](https://www.linkedin.com/in/rizkilabsdev/))
+- [M Rizki](https://www.linkedin.com/in/rizkilabsdev/)
 - ..
 - ..
 
