@@ -7,8 +7,9 @@ let adPassword = "";
 const config = {
   url: "ldaps://pmdomainap01d.dev.cinema21.co.id:636",
   baseDN: "DC=dev,DC=cinema21,DC=co,DC=id",
-  username: "Rizki Testing",
-  password: adPassword === "" ? userPassword.password : adPassword,
+  username: "Rio Testing",
+  //password: adPassword === "" ? userPassword.password : adPassword,
+  password: "TestP@ssw0rd",
   tlsOptions: {
     rejectUnauthorized: false,
   },
@@ -17,10 +18,15 @@ const config = {
 let ldapJsConfig = ldap.createClient({
   url: config.url,
   tlsOptions: config.tlsOptions,
+  reconnect: true,
 });
 
+ldapJsConfig.on("error", (err) => {
+  console.log("LDAP Connection failed, but fear not, it will reconnect OK", err);
+})
+
 ldapJsConfig.bind(
-  "rizki.testing@dev.cinema21.co.id",
+  "rio.testing@dev.cinema21.co.id",
   config.password,
   function (err) {
     if (err) {

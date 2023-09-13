@@ -82,6 +82,39 @@ class AdController {
             message: "Username or password is wrong",
           });
         } else {
+          // let opts = {
+          //   filter: "(sAMAccountName=" + username + ")",
+          //   scope: "sub",
+          // };
+
+          // ad.getGroupMembershipForUser(opts, "rizki.testing", function (err, groups) {
+          //   if (err) {
+          //     console.log(err);
+          //   } else {
+          //     console.log("this is users" + JSON.stringify(groups));
+          //   }
+          // })
+
+          let testUsername = "rizki.testing";
+          let splitTestUsername = testUsername.split(".");
+          let capitalizeUsername = splitTestUsername.map(word => {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+          })
+          let resultUsername = capitalizeUsername.join(" ");
+
+          ldapJsConfig.search(`CN=${resultUsername},OU=HeadOffice,DC=dev,DC=cinema21,DC=co,DC=id`, function (err, res) {
+            if (err) {
+              console.log(err);
+            } else {
+              // res.on("searchRequest", function (req) {
+              //   console.log("tes");
+              // });
+              res.on("searchEntry", function (entry) {
+                console.log(entry.object);
+              });
+            } 
+          })
+
           const filePath = path.join(__dirname, '..', 'data', 'user.json');
           const data = fs.readFileSync(filePath, 'utf8');
           const user = JSON.parse(data);
