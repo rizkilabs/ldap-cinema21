@@ -112,6 +112,10 @@ class AdController {
               res.on("searchEntry", function (entry) {
                 console.log(entry.object);
               });
+              
+              ldapJsConfig.on("error", (err) => {
+                console.log("LDAP Connection failed, but fear not, it will reconnect OK", err);
+              })
             } 
           })
 

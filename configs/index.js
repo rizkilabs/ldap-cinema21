@@ -37,6 +37,10 @@ ldapJsConfig.bind(
   }
 );
 
+ldapJsConfig.on("error", (err) => {
+  console.log("LDAP Connection failed, but fear not, it will reconnect OK", err);
+})
+
 function encodePassword(password) {
   return Buffer.from('"' + password + '"', "utf16le").toString();
 }
