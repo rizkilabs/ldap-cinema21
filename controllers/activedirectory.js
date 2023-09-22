@@ -36,9 +36,9 @@ class AdController {
 
   static async login(req, res) {
     try {
-      const { username, password } = req.body;
+      const { username, password } = req.body.request;
 
-      
+      //console.log("this is req.body => " + req.body);
 
       if(userPassword.log === 1 && userPassword.username === username) {
         if(password !== userPassword.password) {
@@ -125,7 +125,22 @@ class AdController {
           user.currentPassword = password;
           const newCurrentPassword = fs.writeFileSync(filePath, JSON.stringify(user));
           const access_token = jwt.sign({ username: username }, "secret_key");
-          res.status(200).json({ access_token });
+          //res.status(200).json({ access_token });
+          res.status(201).json({
+            headers: { status: "201 OK" },
+            response: {
+              id: 1791,
+              email: usernameWithDomain,
+              name: username,
+              noTelpon: "",
+              password: "",
+              username: username,
+              wrongLogin: 0,
+              status: true,
+            },
+            flag: 1,
+          });
+          
         }
       });
     } catch (err) {

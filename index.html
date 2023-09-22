@@ -157,12 +157,14 @@
           })
         })
         .then(response => {
+          //console.log("this is the response from ldap: " + response.json());
           if (!response.ok) {
             throw new Error("Login failed");
           }
           return response.json();
         })
         .then(data => {
+          console.log("this is data from ldap: " + JSON.stringify(data));
           const token = data.access_token;
           localStorage.setItem("access_token", token);
 
@@ -170,7 +172,7 @@
           title: 'Login successful!',
           text: 'You will be redirected to change password form',
           icon: 'success',
-          timer: 2000
+          timer: 15000
         }).then(function() {
           window.location.href = "change_password.html?username=" + encodeURIComponent(username);
         });

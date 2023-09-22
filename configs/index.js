@@ -47,4 +47,8 @@ function encodePassword(password) {
 
 let ad = new ActiveDirectory(config);
 
-module.exports = { ad, ldapJsConfig, adPassword, encodePassword };
+function bufferToHex(buffer) {
+  return Array.prototype.map.call(new Uint8Array(buffer), (x) => ('00' + x.toString(16)).slice(-2)).join('');
+}
+
+module.exports = { ad, ldapJsConfig, adPassword, encodePassword, bufferToHex };
