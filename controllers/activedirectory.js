@@ -95,7 +95,7 @@ class AdController {
           //   }
           // })
 
-          let testUsername = "rizki.testing";
+          let testUsername = username;
           let splitTestUsername = testUsername.split(".");
           let capitalizeUsername = splitTestUsername.map(word => {
             return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
